@@ -11,16 +11,21 @@ import './SearchFilter.css';
         setenterWord('')
      }
   return(  <div className="search">
-  <div className="searchInputs">
-      <input type="text"placeholder={placeholder} value={enterWord} onChange={e=>setenterWord(e.target.value)}/>
-      <div className='searchIcon'>
-          {enterWord ===''?
-             <SearchIcon />
-             :<CloseIcon id="clearBtn" onClick={handleClearInputField}  />}
-   
-      
-      </div>
-  </div>
+    <div className="searchInputs">
+        <input type="text"placeholder={placeholder} value={enterWord} onChange={e=>setenterWord(e.target.value)}/>
+        <div className='searchIcon'>
+            {enterWord ===''?
+                <SearchIcon />
+                :<CloseIcon id="clearBtn" onClick={handleClearInputField}  />}
+            </div>
+            </div>
+            <div className='dataResult'>
+                {data.map((data)=>{
+                    return(
+                        <p><a className='dataItem' target="_blank" href={data.link}>{data.title}</a></p>
+                    )
+                })}
+            </div>
   </div>);
 }
 export default SearchFilter;
